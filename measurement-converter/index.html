@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4189698117022409"
+     crossorigin="anonymous"></script>
+  <title>Unidades de Comprimento</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .converter {
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 24px;
+    }
+    p {
+      font-size: 18px;
+    }
+    input[type="number"] {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #resultado {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="converter">
+    <h1>Unidades de Comprimento</h1>
+    <p>Valor a ser convertido:</p>
+    <input type="number" id="valor" placeholder="Digite o valor">
+    
+    <p>Unidade Origem:</p>
+    <select id="unidadeOrigem">
+      <option value="quilometro">Quilômetro</option>
+      <option value="hectometro">Hectômetro</option>
+      <option value="decametro">Decâmetro</option>
+      <option value="metro">Metro</option>
+      <option value="decimetro">Decímetro</option>
+      <option value="centimetro">Centímetro</option>
+      <option value="milimetro">Milímetro</option>
+    </select>
+    
+    <p>Unidade Destino:</p>
+    <select id="unidadeDestino">
+      <option value="quilometro">Quilômetro</option>
+      <option value="hectometro">Hectômetro</option>
+      <option value="decametro">Decâmetro</option>
+      <option value="metro">Metro</option>
+      <option value="decimetro">Decímetro</option>
+      <option value="centimetro">Centímetro</option>
+      <option value="milimetro">Milímetro</option>
+    </select>
+    
+    <button onclick="converter()">Converter</button>
+    
+    <p>Resultado: <span id="resultado"></span></p>
+  </div>
+  <script>
+    function converter() {
+  const valor = parseFloat(document.getElementById('valor').value);
+  const unidadeOrigem = document.getElementById('unidadeOrigem').value;
+  const unidadeDestino = document.getElementById('unidadeDestino').value;
+  let resultado;
+
+  switch (unidadeOrigem) {
+    case 'quilometro':
+      if (unidadeDestino === 'hectometro') {
+        resultado = valor * 10;
+      } else if (unidadeDestino === 'decametro') {
+        resultado = valor * 100;
+      } else if (unidadeDestino === 'metro') {
+        resultado = valor * 1000;
+      } else if (unidadeDestino === 'decimetro') {
+        resultado = valor * 10000;
+      } else if (unidadeDestino === 'centimetro') {
+        resultado = valor * 100000;
+      } else if (unidadeDestino === 'milimetro') {
+        resultado = valor * 1000000;
+      } else {
+        resultado = valor; // Mesma unidade de origem e destino
+      }
+      break;
+    case 'hectometro':
+      if (unidadeDestino === 'quilometro') {
+        resultado = valor / 10;
+      } else if (unidadeDestino === 'decametro') {
+        resultado = valor * 10;
+      } else if (unidadeDestino === 'metro') {
+        resultado = valor * 100;
+      } else if (unidadeDestino === 'decimetro') {
+        resultado = valor * 1000;
+      } else if (unidadeDestino === 'centimetro') {
+        resultado = valor * 10000;
+      } else if (unidadeDestino === 'milimetro') {
+        resultado = valor * 100000;
+      } else {
+        resultado = valor; // Mesma unidade de origem e destino
+      }
+      break;
+    case 'decametro':
+      if (unidadeDestino === 'quilometro') {
+        resultado = valor / 100;
+      } else if (unidadeDestino === 'hectometro') {
+        resultado = valor / 10;
+      } else if (unidadeDestino === 'metro') {
+        resultado = valor * 10;
+      } else if (unidadeDestino === 'decimetro') {
+        resultado = valor * 100;
+      } else if (unidadeDestino === 'centimetro') {
+        resultado = valor * 1000;
+      } else if (unidadeDestino === 'milimetro') {
+        resultado = valor * 10000;
+      } else {
+        resultado = valor; // Mesma unidade de origem e destino
+      }
+      break;
+    case 'metro':
+      if (unidadeDestino === 'quilometro') {
+        resultado = valor / 1000;
+      } else if (unidadeDestino === 'hectometro') {
+        resultado = valor / 100;
+      } else if (unidadeDestino === 'decametro') {
+        resultado = valor / 10;
+      } else if (unidadeDestino === 'decimetro') {
+        resultado = valor * 10;
+      } else if (unidadeDestino === 'centimetro') {
+        resultado = valor * 100;
+      } else if (unidadeDestino === 'milimetro') {
+        resultado = valor * 1000;
+      } else {
+        resultado = valor; // Mesma unidade de origem e destino
+      }
+      break;
+    case 'decimetro':
+      if (unidadeDestino === 'quilometro') {
+        resultado = valor / 10000;
+      } else if (unidadeDestino === 'hectometro') {
+        resultado = valor / 1000;
+      } else if (unidadeDestino === 'decametro') {
+        resultado = valor / 100;
+      } else if (unidadeDestino === 'metro') {
+        resultado = valor / 10;
+      } else if (unidadeDestino === 'centimetro') {
+        resultado = valor * 10;
+      } else if (unidadeDestino === 'milimetro') {
+        resultado = valor * 100;
+      } else {
+        resultado = valor; // Mesma unidade de origem e destino
+      }
+      break;
+    case 'centimetro':
+      if (unidadeDestino === 'quilometro') {
+        resultado = valor / 100000;
+      } else if (unidadeDestino === 'hectometro') {
+        resultado = valor / 10000;
+      } else if (unidadeDestino === 'decametro') {
+        resultado = valor / 1000;
+      } else if (unidadeDestino === 'metro') {
+        resultado = valor / 100;
+      } else if (unidadeDestino === 'decimetro') {
+        resultado = valor / 10;
+      } else if (unidadeDestino === 'milimetro') {
+        resultado = valor * 10;
+      } else {
+        resultado = valor; // Mesma unidade de origem e destino
+      }
+      break;
+    case 'milimetro':
+      if (unidadeDestino === 'quilometro') {
+        resultado = valor / 1000000;
+      } else if (unidadeDestino === 'hectometro') {
+        resultado = valor / 100000;
+      } else if (unidadeDestino === 'decametro') {
+        resultado = valor / 10000;
+      } else if (unidadeDestino === 'metro') {
+        resultado = valor / 1000;
+      } else if (unidadeDestino === 'decimetro') {
+        resultado = valor / 100;
+      } else if (unidadeDestino === 'centimetro') {
+        resultado = valor / 10;
+      } else {
+        resultado = valor; // Mesma unidade de origem e destino
+      }
+      break;
+    default:
+      resultado = 'Escolha uma unidade de origem';
+  }
+
+  document.getElementById('resultado').textContent = resultado;
+}
+
+  </script>
+</body>
+</html>
